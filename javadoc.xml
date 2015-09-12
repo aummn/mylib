@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="libraries/log4j.jar:libraries/commons-net.jar:libraries/jdom.jar:/opt/eclipse/configuration/org.eclipse.osgi/bundles/1512/1/.cp/lib/javaee-5.0/jboss-javaee.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.mssint.jclib" source="1.6" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

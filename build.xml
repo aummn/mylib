@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project name="jclib" basedir="." default="jar.jclib">
+    <path id="master-classpath">
+		<pathelement path="libraries/commons-net.jar" />
+		<pathelement path="libraries/slf4j-api-1.7.5.jar" />
+		<pathelement path="libraries/slf4j-simple-1.7.5.jar" />
+		<pathelement path="libraries/jboss-j2ee.jar" />
+		<pathelement path="libraries/jdom.jar" />
+		<pathelement path="libraries/httpclient-4.2.1.jar" />
+		<pathelement path="libraries/httpcore-4.2.1.jar" />
+		<pathelement path="libraries/jansi-1.11.jar" />
+		<pathelement path="libraries/javax.ejb.jar" />
+		<pathelement path="./build" />
+	</path>
+
+	<target name="build">
+		<mkdir dir="./build" />
+		<javac srcdir="src"
+			destdir="./build" nowarn="true" deprecation="on"
+			failonerror="true" encoding="utf-8" debug="true" >
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+
+	<target name="jar.jclib" depends="build">
+		<jar destfile="jclib.jar">
+			<fileset dir="./build" defaultexcludes="true">
+				<include name="com/mssint/jclib/**" />
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="com.mssint.jclib.Version"/>
+			</manifest>
+		</jar>
+	</target>
+
+		<target name="install" depends="jar.jclib">
+			<copy file="jclib.jar" todir="../../lib/" />
+		</target>
+
+	<target name="clean">
+		<delete includeemptydirs="yes">
+			<fileset dir="./build">
+				<include name="**/*" />
+			</fileset>
+		</delete>
+		<delete dir="./build" failonerror="false" />
+		<delete file="jclib.jar" failonerror="false" />
+	</target>
+
+</project>
+
+
