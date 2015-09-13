@@ -33,6 +33,25 @@
 		</jar>
 	</target>
 
+    <target name="stopServer" depends="jar.jclib">
+        <exec dir="${basedir}" executable="cmd" >
+	        <arg line="/c stopServer.bat"/>
+	    </exec>
+	</target>
+	
+    <target name="copy" depends="stopServer">
+		<copy file="jclib.jar" todir="C:\Dev\tools\jboss-eap-6.4\standalone\deployments" />
+	</target>	
+	
+    <target name="startServer" depends="copy">
+        <exec dir="${basedir}" executable="cmd" >
+	        <arg line="/c startServer.bat"/>
+	    </exec>
+	</target>	
+
+    <target name="deploy" depends="startServer">
+	</target>	
+	
 		<target name="install" depends="jar.jclib">
 			<copy file="jclib.jar" todir="../../lib/" />
 		</target>

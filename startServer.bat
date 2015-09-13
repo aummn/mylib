@@ -1,0 +1,3 @@
+@echo Starting JBoss Server ...
+net start JBossEAP6
+@echo JBoss Server started.
