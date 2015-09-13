@@ -28,7 +28,7 @@ public class ApplicationState  {
 	public Glb GLB;
 	public ScreenState screenRef;
 	protected boolean copyFromIspec;
-//	private boolean startupPhase;
+
 	
 	public String REPORTNAME;
 	public String VERSION;
