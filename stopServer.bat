@@ -1,4 +1,6 @@
-@echo Stopping JBoss Server ...
+ping 1.1.1.1 -n 1 -w 20000 > nul
 net stop JBossEAP6
-ping 1.1.1.1 -n 1 -w 10000 > nul
-@echo JBoss Server Stopped.
+
+ping 1.1.1.1 -n 1 -w 20000 > nul
+exit
+
