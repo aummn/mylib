@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <project name="jclib" basedir="." default="jar.jclib">
+    <property environment="env"/>
     <path id="master-classpath">
 		<pathelement path="libraries/commons-net.jar" />
 		<pathelement path="libraries/slf4j-api-1.7.5.jar" />
@@ -40,7 +41,8 @@
 	</target>
 	
     <target name="copy" depends="stopServer">
-		<copy file="jclib.jar" todir="C:\Dev\tools\jboss-eap-6.4\standalone\deployments" />
+	    <echo message="JBOSS_HOME is set to = ${env.JBOSS_HOME}" />
+		<copy file="jclib.jar" todir="${env.JBOSS_HOME}\standalone\deployments" />
 	</target>	
 	
     <target name="startServer" depends="copy">
